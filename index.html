@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Modal for appointment success -->
+  <div id="modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.25);z-index:1000;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:32px 36px 24px 36px;border-radius:16px;box-shadow:0 4px 32px rgba(76,110,245,0.18);text-align:center;min-width:260px;">
+      <div style="font-size:1.2rem;font-weight:600;color:#3a3a3a;margin-bottom:18px;">Appointment booked successfully!</div>
+      <button id="close-modal-btn" style="background:linear-gradient(90deg,#6c63ff,#48c6ef);color:#fff;border:none;border-radius:8px;padding:10px 28px;font-size:1rem;font-weight:600;cursor:pointer;">OK</button>
+    </div>
+  </div>
+  <div id="main">
+    <div id="registration-section">
+      <h2>Patient Registration</h2>
+      <form id="registration-form">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="number" name="age" placeholder="Age" required><br>
+        <select name="gender" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+        </select><br>
+        <input type="text" name="contact" placeholder="Contact" required><br>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+    <div id="doctors-section" style="display:none;">
+      <h2>Select a Doctor</h2>
+      <div id="doctors-list" class="doctor-cards"></div>
+    </div>
+    <div id="appointment-section" style="display:none;">
+      <h2>Book Appointment with <span id="selected-doctor"></span></h2>
+      <form id="appointment-form">
+        <input type="text" name="patientName" placeholder="Patient Name" required><br>
+        <label for="date">Date of appointment</label>
+        <input type="date" id="date" name="date" required><br>
+        <label for="time">Time of appointment</label>
+        <input type="time" id="time" name="time" required><br>
+        <input type="text" name="reason" placeholder="Reason" required><br>
+        <button type="submit">Book Appointment</button>
+      </form>
+      <button id="view-appointments-btn" style="margin-top:16px;display:none;">View Appointments</button>
+    </div>
+    <!-- Appointment details section removed -->
+    <div id="message"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+ </html>
